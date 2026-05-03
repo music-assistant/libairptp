@@ -31,7 +31,7 @@ COPY . .
 
 RUN set -x \
     && autoreconf -vi \
-    && ./configure \
+    && ./configure --enable-daemon \
     && make \
     && mkdir -p release \
     && cp -v daemon/airptpd release/airptpd-$TARGETARCH \
