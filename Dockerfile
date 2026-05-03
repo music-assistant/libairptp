@@ -30,16 +30,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY . .
 
 RUN set -x \
-    && autoreconf -fi \
+    && autoreconf -vi \
     && ./configure \
     && make \
     && mkdir -p release \
-    && cp -v src/airptpd release/airptpd-$TARGETARCH \
+    && cp -v daemon/airptpd release/airptpd-$TARGETARCH \
     && chmod +x release/airptpd-$TARGETARCH \
     && file release/airptpd-$TARGETARCH \
     && ldd release/airptpd-$TARGETARCH
 
-FROM scratch
-ARG TARGETARCH
-COPY --from=airptpd-builder release/airptpd-$TARGETARCH /
-ENTRYPOINT ["/airptpd-$TARGETARCH --testrun"]
+# FROM scratch
+# ARG TARGETARCH
+# COPY --from=airptpd-builder release/airptpd-$TARGETARCH /
+# ENTRYPOINT ["/airptpd-$TARGETARCH --testrun"]
