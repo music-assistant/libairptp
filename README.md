@@ -1,5 +1,10 @@
 # libairptp and airptpd
 
+Forked from [OwnTone/libairptp](https://github.com/owntone/libairptp). The intent is
+for this repo to remain in sync with the upstream repo from which it is forked. The
+only changes are for github actions to build the binaries used by Music Assistant.
+It provides support for PTP timing for AirPlay2 streaming.
+
 libairptp is a library that implements the Precision Time Protocol in the way an
 AirPlay 2 sender like OwnTone needs. It is not an actual PTP clock.
 
