@@ -39,7 +39,7 @@ RUN set -x \
     && file release/airptpd-$TARGETARCH \
     && ldd release/airptpd-$TARGETARCH
 
-# FROM scratch
-# ARG TARGETARCH
-# COPY --from=airptpd-builder release/airptpd-$TARGETARCH /
-# ENTRYPOINT ["/airptpd-$TARGETARCH --testrun"]
+FROM scratch
+ARG TARGETARCH
+COPY --from=airptpd-builder release/airptpd-$TARGETARCH /
+ENTRYPOINT ["/airptpd-$TARGETARCH"]
